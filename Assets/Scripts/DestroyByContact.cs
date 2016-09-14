@@ -32,6 +32,10 @@ public class DestroyByContact : MonoBehaviour {
         {
             Instantiate(playerExplosion, other.transform.position, other.transform.rotation);
         }
+        if(other.tag == "Sphere1"|| other.tag == "Sphere2"|| other.tag == "Sphere3")
+        {
+            gameController.GameOver();
+        }
         gameController.AddScore(scoreValue);
         Destroy(other.gameObject);
         Destroy(gameObject);
