@@ -4,6 +4,7 @@ using System.Collections;
 public class GameController : MonoBehaviour {
 
     public GameObject hazard;
+    public GameObject restartButton;
     public Vector3 spawnValues;
     public int hazardCount;
     public float spawnWait;
@@ -21,7 +22,6 @@ public class GameController : MonoBehaviour {
     {
 
         gameOver = false;
- 
         gameOverText.text = "";
         score = 0;
         UpdateScore();
@@ -59,6 +59,10 @@ public class GameController : MonoBehaviour {
     {
         gameOverText.text = "Game Over";
         gameOver = true;
+        Time.timeScale = 0.0f;
+        Vector3 buttonSpawn = new Vector3(1, 10, -2);
+        Instantiate(restartButton, buttonSpawn, Quaternion.identity);
+
     }
 
   
