@@ -51,8 +51,8 @@ public class PlayerController : MonoBehaviour {
             Mathf.Clamp(rb.position.z, boundary.zMin, boundary.zMax)
         );
         rb.rotation = Quaternion.Euler(0.0f,0.0f,rb.velocity.x*-tilt);
-		//float TransX = Input.acceleration.x;
-		//float TransY = Input.acceleration.y;
+		float TransX = Input.acceleration.x;
+		float TransY = Input.acceleration.y;
 
 		//transform.Translate (TransX, 0/*TransY*0.1f*/, 0.0f);
 
