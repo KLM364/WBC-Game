@@ -94,7 +94,7 @@ public class GameController : MonoBehaviour {
 		scoreText.enabled = false;
 		high.enabled = true;
 		current.enabled = true;
-		high.text = "High Score:" + hscore;
+		high.text = "  High Score:" + hscore;
 		score += 10;
 		current.text = "Current Score:" + score;
 
