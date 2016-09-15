@@ -8,6 +8,6 @@ public class RestartButton : MonoBehaviour {
 	public void ButtonClick()
     {
         Time.timeScale = 1.0f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene("Main");
     }
 }

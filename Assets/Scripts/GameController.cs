@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using UnityEngine.UI;
 public class GameController : MonoBehaviour {
 
     public GameObject hazard;
@@ -17,6 +17,7 @@ public class GameController : MonoBehaviour {
     private int score;
 	public int hscore=0;
 	string highScoreKey = "HighScore";
+	public Button Pause;
 
     private bool gameOver;
    
@@ -85,6 +86,7 @@ public class GameController : MonoBehaviour {
         Time.timeScale = 0.0f;
         Vector3 buttonSpawn = new Vector3(1, 10, -2);
         Instantiate(restartButton, buttonSpawn, Quaternion.identity);
+		Pause.enabled = false;
 
     }
 
