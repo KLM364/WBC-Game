@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour {
 
@@ -13,6 +14,8 @@ public class GameController : MonoBehaviour {
     public GUIText scoreText;
     public GUIText gameOverText;
     private int score;
+	public Button Pause;
+	//public Canvas Game;
 
     private bool gameOver;
    
@@ -26,6 +29,7 @@ public class GameController : MonoBehaviour {
         score = 0;
         UpdateScore();
         StartCoroutine(SpawnWaves());
+	//	Game.enabled = false;
     }
 
     IEnumerator SpawnWaves()
@@ -57,11 +61,13 @@ public class GameController : MonoBehaviour {
    
     public void GameOver()
     {
-        gameOverText.text = "Game Over";
+       gameOverText.text = "Game Over";
         gameOver = true;
         Time.timeScale = 0.0f;
         Vector3 buttonSpawn = new Vector3(1, 10, -2);
         Instantiate(restartButton, buttonSpawn, Quaternion.identity);
+	   
+		Pause.enabled = false;
 
     }
 
