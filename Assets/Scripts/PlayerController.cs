@@ -40,22 +40,25 @@ public class PlayerController : MonoBehaviour {
 
     void FixedUpdate()
     {
-        float moveHorizontal = Input.GetAxis("Horizontal")*speed;
-        float moveVertical = Input.GetAxis("Vertical") * speed;
+        //float moveHorizontal = Input.GetAxis("Horizontal")*speed;
+        //float moveVertical = Input.GetAxis("Vertical") * speed;
 
         //rb.AddForce(moveHorizontal, 0.0f, moveVertical);
-        /*rb.position = new Vector3
+        
+		/*rb.position = new Vector3
         (
             Mathf.Clamp(rb.position.x, boundary.xMin, boundary.xMax),
             0.0f,
             Mathf.Clamp(rb.position.z, boundary.zMin, boundary.zMax)
         );*/
         rb.rotation = Quaternion.Euler(0.0f,0.0f,rb.velocity.x*-tilt);
+
+
 		float TransX = Input.acceleration.x;
 		float TransY = Input.acceleration.y;
 
-		transform.Translate (TransX*0.2f, 0.0f,TransY*0.2f);
+		transform.Translate (TransX*0.4f, 0,TransY*0.4f);
 
-		//Debug.Log (temp*10);
+
     }
 }

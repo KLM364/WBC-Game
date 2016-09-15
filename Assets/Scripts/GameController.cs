@@ -5,6 +5,8 @@ public class GameController : MonoBehaviour {
 
     public GameObject hazard;
     public GameObject restartButton;
+	public GameObject SphereLeft;
+	public GameObject SphereRight;
     public Vector3 spawnValues;
     public int hazardCount;
     public float spawnWait;
@@ -13,6 +15,8 @@ public class GameController : MonoBehaviour {
     public GUIText scoreText;
     public GUIText gameOverText;
     private int score;
+	public int hscore=0;
+	string highScoreKey = "HighScore";
 
     private bool gameOver;
    
@@ -20,13 +24,27 @@ public class GameController : MonoBehaviour {
 
     void Start() 
     {
-
+		hscore = PlayerPrefs.GetInt (highScoreKey, 0);
         gameOver = false;
         gameOverText.text = "";
         score = 0;
         UpdateScore();
         StartCoroutine(SpawnWaves());
+		Invoke ("CreateSphereLeft", 1.0f);
+		Invoke ("CreateSphereRight", 3.0f);
+			
     }
+	void CreateSphereLeft()
+	{
+		Vector3 sphereLeftSpawn = new Vector3(-4.0f, 0.3f, -1.61f);
+		Instantiate(SphereLeft, sphereLeftSpawn, Quaternion.identity);
+	}
+
+	void CreateSphereRight()
+	{
+		Vector3 sphereRightSpawn = new Vector3(4.0f, 0.3f, -1.61f);
+		Instantiate(SphereRight, sphereRightSpawn, Quaternion.identity);
+	}
 
     IEnumerator SpawnWaves()
     {
@@ -50,9 +68,14 @@ public class GameController : MonoBehaviour {
         UpdateScore();
     }
 
+
     void UpdateScore()
     {
         scoreText.text = "Score: " + score;
+		if (score > hscore) {
+			PlayerPrefs.SetInt (highScoreKey, score);
+			PlayerPrefs.Save ();
+		}
     }
    
     public void GameOver()
@@ -64,6 +87,7 @@ public class GameController : MonoBehaviour {
         Instantiate(restartButton, buttonSpawn, Quaternion.identity);
 
     }
+
 
   
 }
