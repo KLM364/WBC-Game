@@ -15,6 +15,7 @@ public class GameController : MonoBehaviour {
     public GUIText scoreText;
     public GUIText gameOverText;
 	public GUIText high;
+	public GUIText current;
     private int score;
 	public int hscore=0;
 	string highScoreKey = "HighScore";
@@ -34,6 +35,8 @@ public class GameController : MonoBehaviour {
         StartCoroutine(SpawnWaves());
 		Invoke ("CreateSphereLeft", 1.0f);
 		Invoke ("CreateSphereRight", 3.0f);
+		high.enabled = false;
+		current.enabled = false;
 			
     }
 	void CreateSphereLeft()
@@ -89,6 +92,8 @@ public class GameController : MonoBehaviour {
         Instantiate(restartButton, buttonSpawn, Quaternion.identity);
 		Pause.enabled = false;
 		scoreText.enabled = false;
+		high.enabled = true;
+		current.enabled = true;
 
     }
 
