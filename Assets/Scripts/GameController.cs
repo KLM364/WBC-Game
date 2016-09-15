@@ -33,8 +33,8 @@ public class GameController : MonoBehaviour {
         score = 0;
         UpdateScore();
         StartCoroutine(SpawnWaves());
-		Invoke ("CreateSphereLeft", 1.0f);
-		Invoke ("CreateSphereRight", 3.0f);
+		Invoke ("CreateSphereLeft", 15.0f);
+		Invoke ("CreateSphereRight", 30.0f);
 		high.enabled = false;
 		current.enabled = false;
 			
