@@ -44,12 +44,12 @@ public class PlayerController : MonoBehaviour {
         float moveVertical = Input.GetAxis("Vertical") * speed;
 
         rb.AddForce(moveHorizontal, 0.0f, moveVertical);
-        rb.position = new Vector3
+        /*rb.position = new Vector3
         (
             Mathf.Clamp(rb.position.x, boundary.xMin, boundary.xMax),
             0.0f,
             Mathf.Clamp(rb.position.z, boundary.zMin, boundary.zMax)
-        );
+        );*/
         rb.rotation = Quaternion.Euler(0.0f,0.0f,rb.velocity.x*-tilt);
 		//float TransX = Input.acceleration.x;
 		//float TransY = Input.acceleration.y;
