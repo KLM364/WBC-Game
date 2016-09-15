@@ -14,6 +14,7 @@ public class GameController : MonoBehaviour {
     public float waveWait;
     public GUIText scoreText;
     public GUIText gameOverText;
+	public GUIText high;
     private int score;
 	public int hscore=0;
 	string highScoreKey = "HighScore";
@@ -87,6 +88,7 @@ public class GameController : MonoBehaviour {
         Vector3 buttonSpawn = new Vector3(1, 10, -2);
         Instantiate(restartButton, buttonSpawn, Quaternion.identity);
 		Pause.enabled = false;
+		scoreText.enabled = false;
 
     }
 
