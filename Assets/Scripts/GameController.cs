@@ -75,9 +75,10 @@ public class GameController : MonoBehaviour {
     {
         scoreText.text = "Score: " + score;
 		if (score > hscore) {
+			hscore = score;
 			PlayerPrefs.SetInt (highScoreKey, score);
 			PlayerPrefs.Save ();
-		}
+		} 
     }
    
     public void GameOver()
@@ -91,12 +92,9 @@ public class GameController : MonoBehaviour {
 		scoreText.enabled = false;
 		high.enabled = true;
 		current.enabled = true;
+		//score += 10;
 		high.text = "  High Score:" + hscore;
-		score += 10;
 		current.text = "Current Score:" + score;
-
-    }
-
-
-  
+	}
+		  
 }
