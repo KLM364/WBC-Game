@@ -2,7 +2,8 @@
 using System.Collections;
 using UnityEngine.UI;
 public class GameController : MonoBehaviour {
-
+	public float WaitWave1;
+	public float WaitWave2;
     public GameObject hazard;
     public GameObject restartButton;
 	public GameObject SphereLeft;
@@ -23,19 +24,38 @@ public class GameController : MonoBehaviour {
 	private bool gameOver;
    
 	void Start() 
-    {
+	{	StartCoroutine(Loadwave1());
+		StartCoroutine(Loadwave2());
 		hscore = PlayerPrefs.GetInt (highScoreKey, 0);
         gameOver = false;
         gameOverText.text = "";
         score = 0;
         UpdateScore();
         StartCoroutine(SpawnWaves());
-		Invoke ("CreateSphereLeft", 15.0f);
-		Invoke ("CreateSphereRight", 30.0f);
+		Invoke ("CreateSphereLeft", 30.0f);
+		Invoke ("CreateSphereRight", 56.0f);
 		high.enabled = false;
 		current.enabled = false;
 			
     }
+
+	IEnumerator Loadwave1(){
+		yield return new WaitForSeconds (WaitWave1);
+		hazardCount = 15;
+		spawnWait = 0.4f;
+		waveWait = 7;
+			
+
+	}
+
+	IEnumerator Loadwave2(){
+		yield return new WaitForSeconds (WaitWave2);
+		hazardCount = 25;
+		spawnWait = 0.4f;
+		waveWait = 9;
+	}
+
+
 	void CreateSphereLeft()
 	{
 		Vector3 sphereLeftSpawn = new Vector3(-4.0f, 0.3f, -1.61f);
@@ -95,6 +115,7 @@ public class GameController : MonoBehaviour {
 		//score += 10;
 		high.text = "  High Score:" + hscore;
 		current.text = "Current Score:" + score;
+		hscore -= 10;
 	}
 		  
 }
