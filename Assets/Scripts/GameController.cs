@@ -20,12 +20,9 @@ public class GameController : MonoBehaviour {
 	public int hscore=0;
 	string highScoreKey = "HighScore";
 	public Button Pause;
-
-    private bool gameOver;
+	private bool gameOver;
    
-
-
-    void Start() 
+	void Start() 
     {
 		hscore = PlayerPrefs.GetInt (highScoreKey, 0);
         gameOver = false;

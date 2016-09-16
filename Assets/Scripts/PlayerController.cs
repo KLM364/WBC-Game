@@ -53,12 +53,10 @@ public class PlayerController : MonoBehaviour {
         );*/
         rb.rotation = Quaternion.Euler(0.0f,0.0f,rb.velocity.x*-tilt);
 
-
 		float TransX = Input.acceleration.x;
 		float TransY = Input.acceleration.y;
 
 		transform.Translate (TransX*0.4f, 0,TransY*0.4f);
-
 
     }
 }
