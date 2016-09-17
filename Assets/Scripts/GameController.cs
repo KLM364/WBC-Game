@@ -22,6 +22,7 @@ public class GameController : MonoBehaviour {
 	string highScoreKey = "HighScore";
 	public Button Pause;
 	private bool gameOver;
+	//public var audioObject;
 
 	void Start() 
 	{	StartCoroutine(Loadwave1());
@@ -36,8 +37,15 @@ public class GameController : MonoBehaviour {
 		Invoke ("CreateSphereRight", 56.0f);
 		high.enabled = false;
 		current.enabled = false;
-
+		//audioObject = GameObject.Find("GameMusic").audio;
+		Destroy (GameObject.FindWithTag("Music"));
+	
 	}
+	/*OnTriggerEnter(object Collider){
+		if (object.tag == "Music"){ // only an object tagged Player stops the sound
+			audioObject.Stop();
+		}
+	}*/
 
 	IEnumerator Loadwave1(){
 		yield return new WaitForSeconds (WaitWave1);
